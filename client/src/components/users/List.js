@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import Editable from '../Tables/EditableTable';
+import AddUser from './Add';
 
 function List() {
     const [users, setusers] = useState([]);
@@ -20,6 +21,7 @@ function List() {
     return (
         <div>
             <Editable users={users}/>
+            <AddUser/>
             {/* {
                 users.map((item)=>(
                     <>
