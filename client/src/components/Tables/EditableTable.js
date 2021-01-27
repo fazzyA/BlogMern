@@ -1,4 +1,4 @@
-import React, { useState }from 'react'
+import React, { useState,useEffect }from 'react'
 import MaterialTable from 'material-table'
 
 function Editable({users}) {
@@ -11,12 +11,29 @@ function Editable({users}) {
       { title: 'Phone#', field: 'phno'},
     ]);
   
-    const [data, setData] = useState(users);
+    const [data, setData] = useState([]);
+useEffect(() => {
+  setData(users)
+}, [users]);
     //   const [data, setData] = useState([
-    //     { name: 'Mehmet', surname: 'Baran', birthYear: 1987, birthCity: 63 },
-    //     { name: 'Zerya Betül', surname: 'Baran', birthYear: 2017, birthCity: 34 },
-    //   ]);
-    console.log(users)  
+//     {
+//       id: 1,
+//       name:'faiza',
+//       usrname: 'fazzyA',
+//       email:'faz.pak@gmail.com',
+//       phno:'3340242139'
+//   },
+//   {
+//       id: 2,
+//       name:'umair2',
+//       usrname: 'umair90',
+//       email:'umair@gmail.com',
+//       phno:'3340242139'
+
+//   }
+
+// ]);
+    console.log(data)  
     return (
       <MaterialTable
         title="Editable Preview"
