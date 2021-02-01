@@ -29,7 +29,7 @@ router.get('/:id',async (req,res)=>{
 //@route add new post
 
 router.post('/',async (req,res)=>{
-    const {title, description} = req.body
+   // const {title, description, author} = req.body
     try {
  const newPost = await Post.create(req.body)
    console.log(newPost)
@@ -41,7 +41,7 @@ router.post('/',async (req,res)=>{
     } catch (error) {
         res.json({
             status:400,
-            msg: 'somethong went wrong'
+            msg: 'Post is not created'
         })
     }
 })
@@ -53,7 +53,8 @@ router.put('/',async (req,res)=>{
    console.log(newPost)
    res.json({
        status: 201,
-       pid: newPost._id
+       pid: newPost._id,
+       msg: "post updated"
    })
 
     } catch (error) {

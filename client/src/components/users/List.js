@@ -5,6 +5,12 @@ import AddUser from './Add';
 
 function List() {
     const [users, setusers] = useState([]);
+    const [col, setcol] = useState([
+        { title: 'Name', field: 'name' },
+        { title: 'UserName', field: 'usrname', initialEditValue: '' },
+        { title: 'Email', field: 'email' },
+        { title: 'Phone#', field: 'phno'},
+      ])
     //http://localhost:4000/api/users/
     // useEffect(
     //     ()=>{
@@ -30,7 +36,7 @@ function List() {
     console.log(users)
     return (
         <div>
-            <Editable users={users}/>
+            <Editable row={users} col={col} />
            
             {/* {
                 users.map((item)=>(

@@ -1,20 +1,15 @@
 import React, { useState,useEffect }from 'react'
 import MaterialTable from 'material-table'
 
-function Editable({users}) {
-    console.log(users)
+function Editable({row,col}) {
+    console.log(row)
   
-    const [columns, setColumns] = useState([
-      { title: 'Name', field: 'name' },
-      { title: 'UserName', field: 'usrname', initialEditValue: '' },
-      { title: 'Email', field: 'email' },
-      { title: 'Phone#', field: 'phno'},
-    ]);
+    const [columns, setColumns] = useState(col);
   
     const [data, setData] = useState([]);
 useEffect(() => {
-  setData(users)
-}, [users]);
+  setData(row)
+}, [row]);
     //   const [data, setData] = useState([
 //     {
 //       id: 1,
@@ -59,7 +54,8 @@ useEffect(() => {
                 resolve();
               }, 1000)
             }),
-          onRowDelete: oldData =>
+          onRowDelete: 
+          oldData =>
             new Promise((resolve, reject) => {
               setTimeout(() => {
                 const dataDelete = [...data];

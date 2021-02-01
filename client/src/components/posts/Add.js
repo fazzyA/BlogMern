@@ -12,9 +12,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AddUser() {
+export default function AddPost() {
   const [state, setstate] = useState({
-    name:'',email:'', username:'',role:'',password:''
+    description:'',title:'', author:''
   })
   const classes = useStyles();
 
@@ -22,23 +22,24 @@ export default function AddUser() {
 const handleSubmit =async (e)=>{
   e.preventDefault();
 console.log('im in submit');
-const res = await axios.post('http://localhost:4000/api/users/',state)
+const res = await axios.post('http://localhost:4000/api/posts/',state)
 console.log(res);
 
   }
 console.log(state);
   return (
     <form onSubmit={handleSubmit} className={classes.root} noValidate autoComplete="off">
-      <TextField id="username" onChange={(e)=>setstate({...state, username:e.target.value})} label=" Enter Username" />
+      <TextField id="title" onChange={(e)=>setstate({...state, title:e.target.value})} 
+      label="title" />
       <br/>
-      <TextField id="name" onChange={(e)=>setstate({...state,name:e.target.value})} label=" Enter Name" />
+      <TextField id="description" onChange={(e)=>setstate({...state,description:e.target.value})} label=" description" />
       <br/>
-      <TextField id="email" onChange={(e)=>setstate({...state,email:e.target.value})} label=" Enter Email" />
+      <TextField id="author" onChange={(e)=>setstate({...state,author:e.target.value})} label=" author" />
       <br/>
-      <TextField id="password" onChange={(e)=>setstate({...state,password:e.target.value})} label=" Enter Password" />
+      {/* <TextField id="email" onChange={(e)=>setstate({...state,email:e.target.value})} label=" Enter Email" />
       <br/>
       <TextField id="role" onChange={(e)=>setstate({...state,role:e.target.value})} label=" Enter Role" />
-      <br/>
+      <br/> */}
       <Button type='submit' variant="contained" color="primary">
          Add User
       </Button>

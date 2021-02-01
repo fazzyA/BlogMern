@@ -12,6 +12,7 @@ router.get('/:id',(req,res)=>{
     console.log('sdasadsa')
 })
 router.post('/',(req,res)=>{
+    console.log(req.body)
     //save user
     User.create(req.body)
     .then(user=>{
