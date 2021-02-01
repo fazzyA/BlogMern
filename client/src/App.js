@@ -1,23 +1,34 @@
 import './App.css';
-import {useEffect, useState} from 'react'
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import AddUser from './components/users/Add';
 import List from './components/users/List';
-function App() {
-  const [user, setuser] = useState([])
-//   useEffect(()=>{
-// axios.get('http://localhost:4000/api/users')
-// .then(res=>setuser(res))
-//   },[])
-  console.log(user)
-  return (
-    <div className='App'>
-      <List/>
-      {/* {user.map(
-        (item) => (
-          <div>{item.name}</div>
-        )
+import Home from './components/Home';
 
-      )} */}
-    </div>
+
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path='/Add'>
+          <AddUser/>
+        </Route>
+        <Route path='/List'>
+          <List/>
+        </Route>
+        <Route path='/Home'>
+          <Home/>
+          </Route>
+        <Route path='/'>
+          <Home/>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

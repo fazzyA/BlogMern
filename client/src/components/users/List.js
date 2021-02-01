@@ -31,7 +31,7 @@ function List() {
     return (
         <div>
             <Editable users={users}/>
-            <AddUser/>
+           
             {/* {
                 users.map((item)=>(
                     <>
