@@ -1,21 +1,28 @@
 const express = require('express')
 const router  = express.Router()
-const users = require('../../User.js')
-/// =========all
+const User = require('../../model/User.js')
 ///========/api/users
-router.get('/',(req,res)=>{
+router.get('/',async (req,res)=>{
     // get all users
+   const users = await User.find();
     res.json(users)
 })
 router.get('/:id',(req,res)=>{
-    //get single user of id
-    //req.body req.params.id
-    let {id} =req.params;
-    const singleUsr = users.filter(item=>item.id==id)
-    res.json(singleUsr)
+    //
+    console.log('sdasadsa')
 })
 router.post('/',(req,res)=>{
     //save user
+    User.create(req.body)
+    .then(user=>{
+        res.json({
+            status: 200,
+            data:user,
+            id: user._id
+
+        })
+    })
+    .catch(err=>console.log(err))
 })
 router.delete('/',(req,res)=>{
     //del user
