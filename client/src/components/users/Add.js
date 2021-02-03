@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import axios from 'axios'
+import {useHistory} from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
@@ -13,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function AddUser() {
+  const history = useHistory()
   const [state, setstate] = useState({
     name:'',email:'', username:'',role:'',password:''
   })
@@ -24,7 +26,8 @@ const handleSubmit =async (e)=>{
 console.log('im in submit');
 const res = await axios.post('http://localhost:4000/api/users/',state)
 console.log(res);
-
+history.push('/List')
+//
   }
 console.log(state);
   return (

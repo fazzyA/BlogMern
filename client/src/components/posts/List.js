@@ -24,7 +24,7 @@ function PostList() {
     console.log(posts)
     return (
         <div>
-            <Editable row={posts} col={col} />
+            <Editable row={posts} col={col} table='posts' />
            
             {/* {
                 posts.map((item)=>(
