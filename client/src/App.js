@@ -1,6 +1,7 @@
 import './App.css';
 import {useEffect, useState} from 'react'
 import List from './components/users/List';
+import SingleUser from './components/users/SingleUser';
 function App() {
   const [user, setuser] = useState([])
 //   useEffect(()=>{
@@ -11,6 +12,7 @@ function App() {
   return (
     <div className='App'>
       <List/>
+      <SingleUser/>
       {/* {user.map(
         (item) => (
           <div>{item.name}</div>

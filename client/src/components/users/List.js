@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
 import Editable from '../Tables/EditableTable';
+import SingleUser from './SingleUser';
 
 function List() {
     const [users, setusers] = useState([]);
