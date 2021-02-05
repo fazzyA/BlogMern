@@ -8,7 +8,7 @@ const dbconnect = require('./config/db.js')
 const app = express();
 app.use(cors());
 app.use(bodyparser.urlencoded({ extended: false }));
-app.use(bodyparser.json());
+app.use(bodyparser.json({limit:'50mb'}));
 
 const PORT = 4000;
 app.listen(PORT, (req,res)=>{

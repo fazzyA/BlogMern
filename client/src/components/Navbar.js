@@ -31,11 +31,11 @@ export default function Navbar() {
             <CodeIcon/>
           </Typography>
 
-          <Tab label="Home" to ='./Home' component={Link}/>
-          <Tab label="AddUser" to ='./Add' component={Link}/>
-          <Tab label="List" to ='./List' component={Link}/>
-          <Tab label="AddPost" to ='./AddPost' component={Link}/>
-          <Tab label="PostsList" to ='./PostList' component={Link}/>
+          <Tab label="Home" to ='/Home' component={Link}/>
+          <Tab label="AddUser" to ='/Add' component={Link}/>
+          <Tab label="List" to ='/List' component={Link}/>
+          <Tab label="AddPost" to ='/AddPost' component={Link}/>
+          <Tab label="PostsList" to ='/PostList' component={Link}/>
         </Toolbar>
       </AppBar>
     </div>

@@ -11,6 +11,8 @@ import PostList from './components/posts/List';
 import Home from './components/Home';
 import Layout from './components/Layout/Layout';
 import AddPost from './components/posts/Add';
+import SingleUser from './components/users/SingleUser';
+import SinglePost from './components/posts/SinglePost';
 
 
 
@@ -33,6 +35,12 @@ function App() {
           </Route>
           <Route path='/AddPost'>
           <AddPost/>
+          </Route>
+          <Route path='/User/:id'>
+          <SingleUser/>
+          </Route>
+          <Route path='/Post/:id'>
+          <SinglePost/>
           </Route>
         <Route path='/'>
           <Home/>

@@ -16,28 +16,30 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
 
-function SingleUser() {
-    const [user, setuser] = useState({})
+function SinglePost() {
+    const [post, setpost] = useState({})
     let {id} = useParams();
 useEffect(()=>{
 // get single user
-const getUser = async ()=>{
-    const res = await axios.get(`http://localhost:4000/api/users/${id}`)
-    console.log(res.data.data);
-    setuser(res.data.data)
+const getPost = async ()=>{
+    const res = await axios.get(`http://localhost:4000/api/posts/${id}`)
+    console.log(res.data.post);
+    setpost(res.data.post)
 }
-getUser()
+getPost()
 
 },[])
 console.log(id);
     return (
-        <div>
+        <div style={{width:'500', margin:'auto'}}>
            <Paper elevation={3}>
-           <div>{user.name}</div>
-           <div>{user.email}</div>
+           <div>title={post.title}</div>
+           <div>desc={post.description}</div>
+           <div>desc={post.author}</div>
+           <div><img src={post.image} alt='' height='100' width='100'/></div>
            </Paper>
         </div>
     )
 }
 
-export default SingleUser
+export default SinglePost
