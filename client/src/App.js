@@ -1,25 +1,53 @@
 import './App.css';
-import {useEffect, useState} from 'react'
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+import AddUser from './components/users/Add';
 import List from './components/users/List';
 import SingleUser from './components/users/SingleUser';
-function App() {
-  const [user, setuser] = useState([])
-//   useEffect(()=>{
-// axios.get('http://localhost:4000/api/users')
-// .then(res=>setuser(res))
-//   },[])
-  console.log(user)
-  return (
-    <div className='App'>
-      <List/>
-      <SingleUser/>
-      {/* {user.map(
-        (item) => (
-          <div>{item.name}</div>
-        )
+import PostList from './components/posts/List';
+import Home from './components/Home';
+import Layout from './components/Layout/Layout';
+import AddPost from './components/posts/Add';
+import SinglePost from './components/posts/SinglePost';
 
-      )} */}
-    </div>
+
+
+function App() {
+  return (
+    <Router>
+      <Layout>
+      <Switch>
+        <Route path='/Add'>
+          <AddUser/>
+        </Route>
+        <Route path='/List'>
+          <List/>
+        </Route>
+        <Route path='/Home'>
+          <Home/>
+          </Route>
+          <Route path='/PostList'>
+          <PostList/>
+          </Route>
+          <Route path='/AddPost'>
+          <AddPost/>
+          </Route>
+          <Route path='/User/:id'>
+          <SingleUser/>
+          </Route>
+          <Route path='/Post/:id'>
+          <SinglePost/>
+          </Route>
+        <Route path='/'>
+          <Home/>
+        </Route>
+      </Switch>
+    </Layout>
+    </Router>
   );
 }
 

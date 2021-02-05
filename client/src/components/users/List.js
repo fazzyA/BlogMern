@@ -3,24 +3,45 @@ import axios from 'axios'
 import Editable from '../Tables/EditableTable';
 import SingleUser from './SingleUser';
 
+import AddUser from './Add';
+//env
+//unique
+//encrypt
 function List() {
     const [users, setusers] = useState([]);
+    const [col, setcol] = useState([
+        { title: 'Name', field: 'name' },
+        { title: 'UserName', field: 'username', initialEditValue: '' },
+        { title: 'Email', field: 'email' },
+        { title: 'Password', field: 'password'},
+      ])
     //http://localhost:4000/api/users/
+    // useEffect(
+    //     ()=>{
+    //         const fetchUsers = async ()=>{
+    //         const myusers = await axios.get('http://localhost:4000/api/users/')
+    //         console.log(" fetchUsers ~ myusers", myusers)
+    //         setusers(myusers.data)
+    //     } 
+    //            fetchUsers();
+    //     },
+    //    []
+    // )
     useEffect(
         ()=>{
-            const fetchUsers = async ()=>{
-            const myusers = await axios.get('http://localhost:4000/api/users/')
-            console.log(" fetchUsers ~ myusers", myusers)
-            setusers(myusers.data)
-        } 
-               fetchUsers();
-        },
-       []
+            axios.get('http://localhost:4000/api/users/')
+            .then(res=>{
+                setusers(res.data)
+            })
+            .catch(err=>console.log(err))
+
+        }, []
     )
     console.log(users)
     return (
         <div>
-            <Editable users={users}/>
+            <Editable row={users} col={col} table='users' />
+           
             {/* {
                 users.map((item)=>(
                     <>
