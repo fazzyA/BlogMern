@@ -47,6 +47,8 @@ function Editable({row, col, table}) {
       const usr= await axios.delete(`http://localhost:4000/api/${table}/6016e621bac7ab34b4256d87`)
       console.log(usr)
     }
+
+    
 useEffect(() => {
   setData(row)
 }, [row]);
@@ -63,6 +65,11 @@ useEffect(() => {
               setTimeout(() => {
                 setData([...data, newData]);
                 ///call api to save user in mongodb
+
+                const handleUpdate = async ()=>{
+                  const usr= await axios.update(`http://localhost:4000/api/${table}/6016e621bac7ab34b4256d87`)
+                  console.log(usr)
+                }
                
                 resolve();
               }, 1000)
@@ -75,7 +82,7 @@ useEffect(() => {
                 dataUpdate[index] = newData;
                 setData([...dataUpdate]);
                 ////call api of update
-  
+                // handleUpdate(); 
                 resolve();
               }, 1000)
             }),

@@ -27,6 +27,9 @@ function App() {
         <Route path='/List'>
           <List/>
         </Route>
+        <Route path='/SingleUser'>
+          <SingleUser/>
+        </Route>
         <Route path='/Home'>
           <Home/>
           </Route>

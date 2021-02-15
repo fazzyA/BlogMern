@@ -36,6 +36,7 @@ export default function Navbar() {
           <Tab label="List" to ='/List' component={Link}/>
           <Tab label="AddPost" to ='/AddPost' component={Link}/>
           <Tab label="PostsList" to ='/PostList' component={Link}/>
+          <Tab label="Single User" to ='/SingleUser' component={Link}/>
         </Toolbar>
       </AppBar>
     </div>
